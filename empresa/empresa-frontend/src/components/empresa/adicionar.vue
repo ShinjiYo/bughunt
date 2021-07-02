@@ -18,13 +18,13 @@
       <legend class="col-form-label col-sm-2 pt-0">Está ativa?</legend>
       <div class="col-sm-10">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="estaAtiva" id="radioSim" value="Sim">
+          <input class="form-check-input" type="radio" v-model="estaAtiva" id="radioSim" value="Sim">
           <label class="form-check-label" for="radioSim">
             Sim
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="estaAtiva" id="radioNao" value="Não">
+          <input class="form-check-input" type="radio" v-model="estaAtiva" id="radioNao" value="Não">
           <label class="form-check-label" for="radioNao">
             Não
           </label>

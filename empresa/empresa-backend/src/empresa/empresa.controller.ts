@@ -7,7 +7,7 @@ export class EmpresaController {
     constructor(private empresaService: EmpresaService) { }
 
 
-    @Post('/create')
+    @Post('/adicionar')
     async addEmpresa(@Res() res, @Body() createEmpresaDTO: CreateEmpresaDTO) {
         const empresa = await this.empresaService.addEmpresa(createEmpresaDTO);
         return res.status(HttpStatus.OK).json({
@@ -30,7 +30,7 @@ export class EmpresaController {
         return res.status(HttpStatus.OK).json(empresa);
     }
 
-    @Put('/update')
+    @Put('/editar')
     async updateEmpresa(@Res() res, @Query('empresaID') empresaID, @Body() createEmpresaDTO: CreateEmpresaDTO) {
         const empresa = await this.empresaService.updateEmpresa(empresaID, createEmpresaDTO);
         if (!empresa) throw new NotFoundException('Empresa não existe!');
@@ -40,7 +40,7 @@ export class EmpresaController {
         });
     }
 
-        @Delete('/delete')
+        @Delete('/deletar')
         async deleteEmpresa(@Res() res, @Query('empresaID') empresaID) {
             const empresa = await this.empresaService.deleteEmpresa(empresaID);
             if (!empresa) throw new NotFoundException('Empresa não existe!');

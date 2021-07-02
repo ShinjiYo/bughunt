@@ -1,5 +1,5 @@
 <template>
-   <div><div>
+   <div>
         <div class="form-group row" v-bind:style="{ 'margin-left': 60 + 'px'}">
           <br>
           <form id="create-post-form" @submit.prevent="editEmpresa">
@@ -16,29 +16,15 @@
                <fieldset class="form-group">
     <div class="row">
       <legend class="col-form-label col-sm-2 pt-0">Está ativa?</legend>
-      <div class="col-sm-10"  v-if="empresa.estaAtiva === 'Sim'">
+      <div class="col-sm-10">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="estaAtiva" id="radioSim" value="Sim" checked>
+          <input class="form-check-input" type="radio" v-model="empresa.estaAtiva" id="radioSim" value="Sim">
           <label class="form-check-label" for="radioSim">
             Sim
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="estaAtiva" id="radioNao" value="Não">
-          <label class="form-check-label" for="radioNao">
-            Não
-          </label>
-        </div>
-      </div>
-        <div class="col-sm-10"  v-if="empresa.estaAtiva === 'Não'">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="estaAtiva" id="radioSim" value="Sim">
-          <label class="form-check-label" for="radioSim">
-            Sim
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="estaAtiva" id="radioNao" value="Não" checked>
+          <input class="form-check-input" type="radio" v-model="empresa.estaAtiva" id="radioNao" value="Não">
           <label class="form-check-label" for="radioNao">
             Não
           </label>
@@ -53,8 +39,6 @@
                   <button class="btn btn-success" type="submit"> Editar Empresa </button>
               </div> 
              </form>
-        </div>
-
         </div>
     </div>
 </template>
@@ -82,7 +66,7 @@ export default {
       };
       axios
         .put(
-          `${server.baseURL}/empresa/update?empresaID=${this.id}`,
+          `${server.baseURL}/empresa/editar?empresaID=${this.id}`,
           empresaData
         )
         .then(data => {

@@ -8,15 +8,13 @@
         </div>
       </div>
 
-        <div v-if="empresas.lenght > 0">
-            <table class="table table-bordered">
-              <thead class="thead-dark">
+        <div>
+            <table class="table table-striped table-dark">
                 <tr>
                   <th scope="col">Nome</th>
                   <th scope="col">Telefone</th>
                   <th scope="col">Está Ativa?</th>
                 </tr>
-              </thead>
               <tbody>
                 <tr v-for="empresa in empresas" :key="empresa._id">
                   <td>{{ empresa.nome }}</td>
@@ -25,8 +23,8 @@
                   <td>
                     <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group" style="margin-bottom: 20px;">
-                                  <router-link :to="{name: 'Edit', params: {id: empresa._id}}" class="btn btn-sm btn-outline-secondary">Editar Empresa </router-link>
-                                  <button class="btn btn-sm btn-outline-secondary" v-on:click="deleteEmpresa(empresa._id)">Delete Empresa</button>
+                                  <router-link :to="{name: 'Editar', params: {id: empresa._id}}" class="btn btn-primary">Editar Empresa </router-link>
+                                  <button class="btn btn-primary" v-on:click="deleteEmpresa(empresa._id)">Deletar Empresa</button>
                                 </div>
                               </div>
                   </td>
@@ -58,7 +56,7 @@ export default {
     },
     deleteEmpresa(id) {
       axios
-        .delete(`${server.baseURL}/empresa/delete?empresaID=${id}`)
+        .delete(`${server.baseURL}/empresa/deletar?empresaID=${id}`)
         .then(data => {
           console.log(data);
           window.location.reload();
