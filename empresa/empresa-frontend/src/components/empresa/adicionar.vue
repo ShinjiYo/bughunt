@@ -1,6 +1,6 @@
 <template>
    <div>
-        <div class="form-group row" v-bind:style="{ 'margin-left': 60 + 'px'}">
+        <div class="form-group row text" v-bind:style="{ 'margin-left': 800 + 'px'}">
           <br>
           <form id="create-post-form" @submit.prevent="createEmpresa">
                <div class="form-group row ">
@@ -36,13 +36,18 @@
               <div class="form-group col-md-4 pull-right">
               <br>
               <br>
-                  <button class="btn btn-success" type="submit"> Criar Empresa </button>
+                  <button class="btn btn-success" type="submit" v-bind:style="{ 'margin-left': 75 + 'px'}"> Criar Empresa </button>
               </div> 
              </form>
         </div>
     </div>
 </template>
 
+<style scoped>
+.text{
+  color: #ffffff;
+}
+</style>
 <script>
 import axios from "axios";
 import { server } from "../../helper";

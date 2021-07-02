@@ -9,11 +9,11 @@
       </div>
 
         <div>
-            <table class="table table-striped table-dark">
+            <table class="table table-striped table-dark " v-bind:style="{ 'width': 800 + 'px', 'margin-left': 500 + 'px'}">
                 <tr>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Telefone</th>
-                  <th scope="col">Está Ativa?</th>
+                  <th  scope="col">Nome</th>
+                  <th  scope="col">Telefone</th>
+                  <th  scope="col">Está Ativa?</th>
                 </tr>
               <tbody>
                 <tr v-for="empresa in empresas" :key="empresa._id">
@@ -23,7 +23,8 @@
                   <td>
                     <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group" style="margin-bottom: 20px;">
-                                  <router-link :to="{name: 'Editar', params: {id: empresa._id}}" class="btn btn-primary">Editar Empresa </router-link>
+                                  <router-link :to="{name: 'Editar', params: {id: empresa._id}}" class="btn btn-primary " v-bind:style="{'position':absolute,
+                                   'margin-left': 250 + 'px', 'margin-right': 20 + 'px'}">Editar Empresa </router-link>
                                   <button class="btn btn-primary" v-on:click="deleteEmpresa(empresa._id)">Deletar Empresa</button>
                                 </div>
                               </div>
@@ -33,10 +34,9 @@
             </table>
             </div>
     </div>
-
     </template>
 
-    <script>
+<script>
 import { server } from "../../helper";
 import axios from "axios";
 export default {

@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/adicionar">Adicionar Empresas</router-link> |
-      <router-link to="/Empresas">Listar Empresas</router-link>
+    <div id="nav" class = "div-1">
+      <img class = "logo" src="../src/assets/bughunt.png" width="60" height="auto" id="logo">
+      <router-link class="link" to="/">Home</router-link> |
+      <router-link class = "link" to="/adicionar">Adicionar Empresas</router-link> |
+      <router-link class = "link" to="/Empresas">Listar Empresas</router-link>
     </div>
     <router-view/>
   </div>
@@ -14,7 +15,7 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: right;
   color: #2c3e50;
 }
 
@@ -24,10 +25,28 @@
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #ffffff;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #ff9100;
+}
+
+.div-1{
+  background-color:#720ca4;
+}
+
+.router-1{
+text-color:#ffffff;
+}
+
+#logo{
+  position: absolute;
+  left: 15px;
+  top: 10px;
+}
+
+.link{
+  right:150px;
 }
 </style>
